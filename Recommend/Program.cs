@@ -7,12 +7,15 @@ namespace Recommend
         static void Main(string[] args)
         {
 
-            //Map map = new Map(10, 5);
-            //map.initialize();
-            //map.printValues();
+            Map map = new Map(10, 1128);
+            map.initialize();
 
-            TrainingSet set = new TrainingSet();
-            set.prepare();
+            TrainingSet trainingSet = new TrainingSet();
+            trainingSet.prepare();
+
+            Neuron n = new Neuron(1128);
+            n.Weights = trainingSet.Set[2];
+            Neuron winner = map.findWinner(n);
 
             Console.ReadLine();
 

@@ -7,6 +7,13 @@ namespace Recommend
     {
         private List<double[]> set;
 
+        public List<double[]> Set
+        {
+            get { return set; }
+            set { set = value; }
+        }
+
+
         public TrainingSet()
         {
             set = new List<double[]>();

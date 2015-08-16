@@ -4,7 +4,12 @@
     {
         private double[] weights;
 
-        public double[] Weights { get; set; }
+        public double[] Weights
+        {
+            get { return weights; }
+            set { weights = value; }
+        }
+
 
         public Neuron(int dim)
         {

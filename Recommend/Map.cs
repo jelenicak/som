@@ -31,6 +31,36 @@ namespace Recommend
             }
         }
 
+        public Neuron findWinner(Neuron neuron)
+        {
+            double min = Double.MaxValue;
+            Neuron winner = null;
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    double distance = calculateDistance(neuron.Weights, lattice[i, j].Weights);
+                    if (distance < min)
+                    {
+                        min = distance;
+                        winner = lattice[i, j];
+                    }
+                }
+            }
+            return winner;
+            
+        }
+
+        private double calculateDistance(double[] v1, double[] v2)
+        {
+            double sum = 0;
+            for (int i = 0; i < v1.Length; i++)
+            {
+                sum += Math.Pow((v1[i] - v2[i]), 2);
+            }
+            return Math.Sqrt(sum);
+        }
+
         public void printValues()
         {
             for (int i = 0; i < size; i++)
