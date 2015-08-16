@@ -51,6 +51,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Randomizer.cs" />
+    <Compile Include="Training.cs" />
     <Compile Include="TrainingSet.cs" />
   </ItemGroup>
   <ItemGroup>
