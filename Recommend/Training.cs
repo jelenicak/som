@@ -3,27 +3,24 @@ using System.Collections.Generic;
 
 namespace Recommend
 {
-    class TrainingSet
+    static class Training
     {
-        private List<double[]> set;
-
-        public List<double[]> Set
+        public static double calculateDistance(double[] v1, double[] v2)
         {
-            get { return set; }
-            set { set = value; }
+            double sum = 0;
+            for (int i = 0; i < v1.Length; i++)
+            {
+                sum += Math.Pow((v1[i] - v2[i]), 2);
+            }
+            return Math.Sqrt(sum);
         }
 
-
-        public TrainingSet()
+        public static List<double[]> getTrainingSet(String filePath)
         {
-            set = new List<double[]>();
-        }
-
-        public void prepare()
-        {
+            List<double[]> set = new List<double[]>();
             int currentMovie = 1;
             int tagId = 0;
-            string[] lines = readLines();
+            string[] lines = System.IO.File.ReadAllLines(filePath);
             string[] tokens;
             double[] trainingExample = new double[1128];
 
@@ -41,11 +38,7 @@ namespace Recommend
                 tagId++;
             }
             set.Add(trainingExample);
-        }
-
-        private string[] readLines()
-        {
-            return System.IO.File.ReadAllLines( @"..\..\Resources\tag_relevancetxt.txt");
+            return set;
         }
     }
 }
