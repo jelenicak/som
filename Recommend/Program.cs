@@ -23,10 +23,16 @@ namespace Recommend
             //Console.WriteLine("Press any key to exit.");
             //System.Console.ReadKey();
 
-            Map map = new Map(10, 5);
-            map.initialize();
-            map.printValues();
+            //Map map = new Map(10, 5);
+            //map.initialize();
+            //map.printValues();
+
+
+            TrainingSet set = new TrainingSet();
+            set.prepare();
+
             Console.ReadLine();
+
 
         }
     }
